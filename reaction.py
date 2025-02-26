@@ -10,26 +10,21 @@ class Reaction:
         plt.switch_backend('Agg') 
         
     def add_molecule(self, name: str, degree: int, initial_concentration: float):
-        """Add molecules (reactants or products) with their degree (stoichiometric coefficient) and initial concentration."""
         self.molecule_info[name] = {
             "degree": degree,
             "initial_concentration": initial_concentration
         }
         
     def set_k(self, k: float):
-        """Set the rate constant for the reaction."""
         self.k = k
         
     def get_degree_list(self):
-        """Get the list of degrees (stoichiometric coefficients) for the reaction."""
         return [self.molecule_info[key]["degree"] for key in self.molecule_info.keys()]
 
     def get_init_conc_list(self):
-        """Get the list of initial concentrations for the reaction."""
         return [self.molecule_info[key]["initial_concentration"] for key in self.molecule_info.keys()]
 
     def reaction(self, t, current_conc):
-        """Return the rate of change of concentrations of all molecules."""
         return_list = []
         degree_list = self.get_degree_list()
         
@@ -43,13 +38,11 @@ class Reaction:
         return return_list
     
     def simulate(self, t_span, num_points):
-        """Simulate the reaction over a time span."""
         t_eval = np.linspace(t_span[0], t_span[1], num_points)
         sol = solve_ivp(self.reaction, t_span, self.get_init_conc_list(), t_eval=t_eval, method='LSODA')
         return sol.t, sol.y
     
     def make_graph(self, t_span=None, num_points=100, link=""):
-        """Generate and save a graph showing the concentrations of all molecules over time."""
         if t_span is None:
             t_span = (0, int(10 / self.k))  # Default time span based on rate constant
         
@@ -66,9 +59,8 @@ class Reaction:
         plt.legend()
         plt.grid()
         
-        plt.savefig(link + "/reaction.png")
+        plt.savefig(link + "reaction.png")
         
     def reset(self):
-        """Reset the reaction to initial state."""
         self.molecule_info = {}
         self.k = 1
