@@ -9,19 +9,11 @@ class reaction:
         self.k = 1
         plt.switch_backend('Agg') 
         
-    def add_molecule(self,name:str,degree:int,initial_concentration:float,is_product:bool,equilibrium_concentration:float = 0.0):
+    def add_molecule(self,name:str,degree:int,initial_concentration:float,is_product:bool):
         self.molecule_info[name] = {"degree": degree if is_product else -degree,
                                     "initial_concentration":initial_concentration,
-                                    "is_product":is_product,
-                                    "equilibrium_concentration":equilibrium_concentration}
+                                    "is_product":is_product}
         
-    
-    def calc_k(self) -> None:
-        
-        current_conc = self.get_eq_conc_list()
-        degree_list = self.get_degree_list()
-        
-        return np.prod([(current_conc[i] + 0.001)**degree_list[i] for i in range(len(current_conc))])
     
     def set_k(self,k:int) -> None:
         self.k = k
@@ -31,9 +23,6 @@ class reaction:
 
     def get_init_conc_list(self):
         return [self.molecule_info[key]["initial_concentration"] for key in self.molecule_info.keys()]
-
-    def get_eq_conc_list(self):
-        return [self.molecule_info[key]["equilibrium_concentration"] for key in self.molecule_info.keys()]
 
     def reaction(self, t,current_conc):
         return_list = []
