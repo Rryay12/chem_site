@@ -46,7 +46,7 @@ def index():
         python_reaction.set_k(float(k))
         
         # Generate the reaction graph
-        python_reaction.make_graph(link="static/images/")
+        python_reaction.make_graph(link="static/images")
     
     # Render the template with updated reaction data
     return render_template("test.html", reaction=reaction_data)

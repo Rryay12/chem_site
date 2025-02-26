@@ -72,7 +72,7 @@ class reaction:
         plt.legend()
         plt.grid()
         
-        plt.savefig(link+"reaction")
+        plt.savefig(link+"/reaction.png")
         
     def reset(self):
         self.molecule_info = {}
