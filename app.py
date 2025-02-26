@@ -37,16 +37,16 @@ def index():
         
         # Add reactants and products to the Python reaction model
         for reactant in reaction_data["reactants"]:
-            python_reaction.add_molecule(reactant["name"], int(reactant["degree"]), float(reactant["concentration"]), False)
+            python_reaction.add_molecule(name=reactant["name"], degree=int(reactant["degree"]), initial_concentration=float(reactant["concentration"]), is_product=False)
         
         for product in reaction_data["products"]:
-            python_reaction.add_molecule(product["name"], int(product["degree"]), float(product["concentration"]), True)
+            python_reaction.add_molecule(name=reactant["name"], degree=int(reactant["degree"]), initial_concentration=float(reactant["concentration"]), is_product=True)
         
         # Set the reaction constant k
         python_reaction.set_k(float(k))
         
         # Generate the reaction graph
-        python_reaction.make_graph(link="static/images")
+        python_reaction.make_graph(link="static/images/")
     
     # Render the template with updated reaction data
     return render_template("test.html", reaction=reaction_data)
