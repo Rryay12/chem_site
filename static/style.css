@@ -1,0 +1,111 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Reaction Display */
+.reaction-display {
+    background-color: #1e1e1e;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.5);
+}
+
+.reaction-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.arrow {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0ff; /* Neon Cyan */
+}
+
+/* Form Layout */
+.form-container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-bottom: 20px;
+}
+
+.column {
+    background-color: #1e1e1e;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(255, 0, 255, 0.5);
+    min-width: 250px;
+}
+
+h3 {
+    color: #ff00ff; /* Neon Magenta */
+}
+
+/* Input Fields */
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+input {
+    background-color: #222;
+    border: 1px solid #0ff;
+    color: #fff;
+    padding: 8px;
+    border-radius: 5px;
+    width: 80px;
+    text-align: center;
+}
+
+input::placeholder {
+    color: #999;
+}
+
+/* Buttons */
+button {
+    background: linear-gradient(45deg, #ff00ff, #0ff);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.7);
+}
+
+/* Delete Button */
+.delete-btn {
+    background: red;
+    font-size: 14px;
+    padding: 6px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 0px 5px rgba(255, 0, 0, 0.7);
+}
+
+.delete-btn:hover {
+    background: darkred;
+}
