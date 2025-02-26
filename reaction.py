@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.integrate import solve_ivp
 
-class Reaction:
+class reaction:
     
     def __init__(self):
         self.molecule_info = {}
