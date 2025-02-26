@@ -40,7 +40,7 @@ class reaction:
         degree_list = self.get_degree_list()
         
         epsilon = 1e-10
-        rate = self.k * np.prod([(current_conc[i] + epsilon) ** -degree_list[i] for i in range(len(current_conc)) if degree_list[i] < 0])
+        rate = self.k * np.prod([(current_conc[i] + epsilon) ** degree_list[i] for i in range(len(current_conc))])
         
         for i in range(len(current_conc)):
             return_list.append(degree_list[i] * rate)
