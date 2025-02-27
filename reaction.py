@@ -38,10 +38,13 @@ class reaction:
         return_list = []
         degree_list = self.get_degree_list()
         epsilon = 1e-10  
+        
         forward_rate = self.k * np.prod([(current_conc[i] + epsilon) ** abs(degree_list[i]) 
                                         for i in range(len(current_conc)) if degree_list[i] < 0])
+        
         reverse_rate = (self.k / self.K_eq) * np.prod([(current_conc[i] + epsilon) ** abs(degree_list[i]) 
                                                 for i in range(len(current_conc)) if degree_list[i] > 0])
+        
         net_rate = forward_rate - reverse_rate
         
         for i in range(len(current_conc)):
